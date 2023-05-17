@@ -8,9 +8,9 @@ namespace WeInfuseBowlingScore
     {
         public static void Main(String[] args)
         {
-            Console.WriteLine("Please enter your scores for each roll");
+            Console.WriteLine("Please enter your scores for each roll (Ex: 4, 5, X, 8, 1):");
             var userInput = Console.ReadLine();
-            string[] bowlingFrames = userInput.Split(" ");
+            string[] bowlingFrames = userInput.Split(", ");
 
             BowlingScore score = new BowlingScore();
 
