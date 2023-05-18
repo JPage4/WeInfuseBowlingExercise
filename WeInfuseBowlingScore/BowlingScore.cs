@@ -132,27 +132,55 @@ namespace WeInfuseBowlingScore
                 //extra roll on 10th frame
                 if (frameCount == 10 && (isSpare == true || isStrike == true))
                 {
-                    if (i + 2 <= rolls.Length)
+                    if (isStrike)
                     {
-                        if (rolls[i + 2] != "X")
+                        if (i + 2 <= rolls.Length)
                         {
-                            extraFrameScore = int.Parse(rolls[i  + 2]);
-                        }
-                        else
-                        {
-                            extraFrameScore = 10;
-                        }
+                            if (rolls[i + 2] != "X")
+                            {
+                                extraFrameScore = int.Parse(rolls[i + 2]);
+                            }
+                            else
+                            {
+                                extraFrameScore = 10;
+                            }
 
-                        if (isStrike == true)
-                        {
-                            prevFrameScore = 10 + rollTwo + extraFrameScore;
-                            frameScoreList.Add(prevFrameScore.ToString());
-                        }
-                        else
-                        {
-                            frameScore = 10 + extraFrameScore;
-                            frameScoreList.Add(frameScore.ToString());
+                            if (isStrike == true)
+                            {
+                                prevFrameScore = 10 + rollTwo + extraFrameScore;
+                                frameScoreList.Add(prevFrameScore.ToString());
+                            }
+                            else
+                            {
+                                frameScore = 10 + extraFrameScore;
+                                frameScoreList.Add(frameScore.ToString());
+                            }
                         } 
+                    }
+                    if (isSpare)
+                    {
+                        if (i + 1 <= rolls.Length)
+                        {
+                            if (rolls[i + 1] != "X")
+                            {
+                                extraFrameScore = int.Parse(rolls[i + 1]);
+                            }
+                            else
+                            {
+                                extraFrameScore = 10;
+                            }
+
+                            if (isStrike == true)
+                            {
+                                prevFrameScore = 10 + rollTwo + extraFrameScore;
+                                frameScoreList.Add(prevFrameScore.ToString());
+                            }
+                            else
+                            {
+                                frameScore = 10 + extraFrameScore;
+                                frameScoreList.Add(frameScore.ToString());
+                            }
+                        }
                     }
                 }
                 frameCount++;
