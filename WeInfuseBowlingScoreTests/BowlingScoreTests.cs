@@ -38,6 +38,15 @@ namespace WeInfuseBowlingScore.Tests
         }
 
         [TestMethod()]
+        public void CalculateScore_CompleteGameWithoutExtraFrame()
+        {
+            string[] bowlingFrames = { "4", "5", "X", "8", "1", "3", "/", "5", "2", "4", "/", "X", "4", "/", "8", "1", "6", "3" };
+            string[] frameScores = _score.CalculateScore(bowlingFrames);
+            string[] correctScores = { "9", "19", "9", "15", "7", "20", "20", "18", "9", "9" };
+            CollectionAssert.AreEqual(correctScores, frameScores);
+        }
+
+        [TestMethod()]
         public void CalculateScore_PerfectGame()
         {
             string[] bowlingFrames = { "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X" };

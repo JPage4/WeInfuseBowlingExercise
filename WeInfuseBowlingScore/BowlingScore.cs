@@ -20,7 +20,7 @@ namespace WeInfuseBowlingScore
             bool isSpare = false;
             List<string> frameScoreList = new List<string>();
 
-            for (int i = 0; (i + 1 <= rolls.Length && frameCount <= 10); i++)
+            for (int i = 0; (i + 1 < rolls.Length && frameCount <= 10); i++)
             {
                 if (rolls[i] != "X")
                 {
@@ -54,7 +54,6 @@ namespace WeInfuseBowlingScore
                 if (isStrike == true && rollOne == 10)
                 {
                     isStrikeTwo = true;
-                    prevFrameTwoScore = 20;
                 }
 
                 if (rollOne < 10)
@@ -101,7 +100,6 @@ namespace WeInfuseBowlingScore
                 else //strike
                 {
                     isStrike = true;
-                    prevFrameScore = 10;
                 }
 
                 //10th frame, adding score to previous frame if strike
